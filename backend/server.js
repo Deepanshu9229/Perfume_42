@@ -5,6 +5,7 @@ import 'dotenv/config'
 import connectDB from './config/mongodb.js'
 import connectCloudinary from './config/cloudinary.js'
 import userRouter from './routes/userRoute.js'
+import productRouter from './routes/productRoute.js'
 
 //---------------------------App Config
 const app = express() //instance of express server
@@ -23,6 +24,7 @@ app.use(cors())// now we can access backend from any ip
 //     res.send("API Working")
 // } )
 app.use('/api/user', userRouter)
+app.use('/api/product', productRouter)
 
 
 app.listen(port, ()=> console.log('Server running on PORT : ' + port)) //---Start express server
