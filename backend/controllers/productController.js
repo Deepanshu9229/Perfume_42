@@ -30,7 +30,7 @@ const addProduct = async (req, res) => {
         const productData = {
             name,
             description,
-            category,
+            category: JSON.parse(category),
             price: Number(price), // come in string, so converting into number
             season: JSON.parse(season), // come in string , but we store in array
             bestSeller: bestSeller === "true" ? true : false, // string se boolean me convert kr rahe
