@@ -2,7 +2,8 @@
 //centralizing state for easy access ini child components
 import React, { useState, useEffect } from 'react'
 import { createContext } from 'react'
-import { products } from '../assets/assets'
+//import { products } from '../assets/assets' //frontedn me ssare prodct was shown by this but now we'e do through backend
+import axios from 'axios'
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 
@@ -12,9 +13,11 @@ const ShopContexProvider = (props) => {
 
     const currency = '$';
     const delivery_fee = 10;
+    const backendUrl = import.meta.env.VITE_BACKEND_URL
     const [search, setSearch] = useState('');
     const [showSearch, setShowSearch] = useState(true);
     const [cartItems, setCartItems] = useState({});
+    const [products, setProducts] = useState([])
     const navigate = useNavigate()
 
     //----------------add to cart
@@ -81,11 +84,28 @@ const ShopContexProvider = (props) => {
         }
         return totalAmount;
     }
+// ------------------ getting product from backend -----------
+    const getProductsData = async ()=>{
+        try {
+            
+            const response = await axios.get(backendUrl + '/api/product/list')
+            console.log(response.data)
+            if(response.data.success) setProducts(response.data.products)
+            else toast.error(response.data.message) 
 
+        } catch (error) {
+            console.log(error);
+            toast.error(error.message)
+        }
+    }
+
+    useEffect(()=>{
+        getProductsData()
+    },[])
 
     
     const value = { // these things can be accessed anywhere
-        products, currency, delivery_fee, search, setSearch, showSearch, setShowSearch, cartItems, addToCart, getCartCount, updateQuantity, getCartAmount, navigate
+        products, currency, delivery_fee, search, setSearch, showSearch, setShowSearch, cartItems, addToCart, getCartCount, updateQuantity, getCartAmount, navigate, backendUrl,
     };
 
   return (

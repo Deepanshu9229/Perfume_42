@@ -42,7 +42,7 @@ const Cart = () => {
             return (
               <div key={index} className='py-6 grid grid-cols-1 sm:grid-cols-2 gap-4 items-center text-gray-700'>
                 <div className='flex items-start gap-3 mt-2'>
-                  <img className='w-20 sm:w-24 rounded-md object-cover' src={productData.img[0]} alt={productData.name}/>
+                  <img className='w-20 sm:w-24 rounded-md object-cover' src={productData.image[0]} alt={productData.name}/>
                   <div>
                     <p className='text-sm sm:text-lg font-medium'>{productData.name}</p>
                     <div className='flex items-center gap-3 mt-2'>

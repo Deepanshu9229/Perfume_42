@@ -10,6 +10,7 @@ const Product = () => {
   const { products, currency, addToCart } = useContext(ShopContext);
   const [productData, setProductData] = useState(null);
   const [size, setSize] = useState('')
+  const [selectedImage, setSelectedImage] = useState(0);
 
   const fetchProductData = async () => {
     const item = products.find((item) => item._id === productId);
@@ -30,8 +31,9 @@ const Product = () => {
           <div className="flex flex-col sm:flex-row">
             {/* ------------------Gallery thumbnails */}
             <div className="hidden sm:flex flex-col gap-4 w-24 mr-2">
-              {productData.img?.map((item, index) => (
+              {productData.image?.map((item, index) => (
                 <img
+                  onClick={()=>setSelectedImage(index)}
                   src={item}
                   key={index}
                   alt=""
@@ -43,7 +45,7 @@ const Product = () => {
             {/* ----------------Main image */}
             <div className="flex-1 flex justify-center items-center">
               <img
-                src={productData.img?.[0]}
+                src={productData.image?.[selectedImage]}
                 alt={productData.name}
                 className="w-full max-w-[320px] sm:max-w-[400px] h-[450px] rounded-2xl shadow-lg object-cover"
               />
