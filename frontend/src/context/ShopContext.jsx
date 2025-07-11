@@ -18,6 +18,7 @@ const ShopContexProvider = (props) => {
     const [showSearch, setShowSearch] = useState(true);
     const [cartItems, setCartItems] = useState({});
     const [products, setProducts] = useState([])
+    const [token, setToken] = useState('')
     const navigate = useNavigate()
 
     //----------------add to cart
@@ -103,9 +104,13 @@ const ShopContexProvider = (props) => {
         getProductsData()
     },[])
 
+    useEffect(()=>{
+        if(!token && localStorage.getItem('token')) setToken(localStorage.getItem('token')) //login hi rahega jabtk token hai localstorage me
+    },[])
+
     
     const value = { // these things can be accessed anywhere
-        products, currency, delivery_fee, search, setSearch, showSearch, setShowSearch, cartItems, addToCart, getCartCount, updateQuantity, getCartAmount, navigate, backendUrl,
+        products, currency, delivery_fee, search, setSearch, showSearch, setShowSearch, cartItems, addToCart, getCartCount, updateQuantity, getCartAmount, navigate, backendUrl, setToken, token,
     };
 
   return (

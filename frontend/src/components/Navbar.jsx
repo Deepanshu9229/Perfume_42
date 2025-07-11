@@ -7,7 +7,16 @@ import { ShopContext } from '../context/ShopContext';
 
 const Navbar = () => {
   const [mobileSidebarVisible, setMobileSidebarVisible] = useState(false);
-  const { setShowSearch, getCartCount } = useContext(ShopContext);
+  const { setShowSearch, getCartCount, navigate, token, setToken, setCartItems } = useContext(ShopContext);
+
+  const logout = () => {
+    navigate('/login')
+    localStorage.removeItem('token')
+    setToken('')
+    setCartItems({})
+    
+    
+  }
 
   // Close mobile sidebar when clicking outside
   useEffect(() => {
@@ -95,11 +104,7 @@ const Navbar = () => {
         {/* Right Side Icons */}
         <div className="flex items-center gap-6">
           {/* Search Icon */}
-          <button
-            type="button"
-            className="sidebar-trigger p-1 rounded-full transition-colors duration-200 hover:bg-gray-100"
-            aria-label="Search"
-          >
+          <button type="button" className="sidebar-trigger p-1 rounded-full transition-colors duration-200 hover:bg-gray-100" aria-label="Search" >
             <MdSearch onClick={() => setShowSearch(true)} className="w-5 h-5 text-gray-700 hover:text-black transition-colors duration-200" />
           </button>
 
@@ -108,36 +113,29 @@ const Navbar = () => {
             <Link to='/login'>
               <HiOutlineUserCircle className="w-5 h-5 text-gray-700 hover:text-black transition-colors duration-200 cursor-pointer" />
             </Link>
-
+            {/* drop down menu */}
+            {token && 
             <div className='group-hover:block hidden absolute dropdown-menu right-0 pt-4'>
               <div className='bg-slate-100 text-gray-500 rounded-md shadow-lg'>
                 <div className='flex flex-col gap-2 w-36 py-3 px-5'>
                   <Link to='/profile' className='cursor-pointer hover:text-black'>My Profile</Link>
                   <Link to='/orders' className='cursor-pointer hover:text-black'>Orders</Link>
-                  <Link to='/logout' className='cursor-pointer hover:text-black'>Logout</Link>
+                  <p onClick={logout} className='cursor-pointer hover:text-black'>Logout</p>
                 </div>
               </div>
             </div>
+
+            }
           </div>
 
           {/* Shopping Cart */}
-          <Link
-            to="/cart"
-            className="relative p-1 rounded-full transition-colors duration-200 hover:bg-gray-100"
-            aria-label="Shopping cart"
-          >
+          <Link to="/cart" className="relative p-1 rounded-full transition-colors duration-200 hover:bg-gray-100" aria-label="Shopping cart" >
             <HiOutlineShoppingBag className="w-5 h-5 text-gray-700 hover:text-black transition-colors duration-200" />
             <span className="absolute -right-1 -bottom-1 w-4 h-4 flex items-center justify-center bg-black text-white rounded-full text-[8px] font-medium">{getCartCount()}</span>
           </Link>
 
           {/* Mobile Menu Toggle */}
-          <button
-            type="button"
-            onClick={() => setMobileSidebarVisible(!mobileSidebarVisible)}
-            className="sidebar-trigger sm:hidden p-1 rounded-full transition-colors duration-200 hover:bg-gray-100"
-            aria-label="Mobile menu"
-            aria-expanded={mobileSidebarVisible}
-          >
+          <button type="button" onClick={() => setMobileSidebarVisible(!mobileSidebarVisible)} className="sidebar-trigger sm:hidden p-1 rounded-full transition-colors duration-200 hover:bg-gray-100" aria-label="Mobile menu" aria-expanded={mobileSidebarVisible} >
             <HiBars3 className="w-5 h-5 text-gray-700 hover:text-black transition-colors duration-200" />
           </button>
         </div>
@@ -145,20 +143,12 @@ const Navbar = () => {
 
       {/* Mobile Navigation Sidebar */}
       <aside
-        className={`sidebar sm:hidden fixed top-0 right-0 h-full bg-white shadow-xl transition-transform duration-300 ease-in-out z-50 ${mobileSidebarVisible ? 'translate-x-0' : 'translate-x-full'
-          } w-64`}
-        aria-hidden={!mobileSidebarVisible}
-      >
+        className={`sidebar sm:hidden fixed top-0 right-0 h-full bg-white shadow-xl transition-transform duration-300 ease-in-out z-50 ${mobileSidebarVisible ? 'translate-x-0' : 'translate-x-full'} w-64`} aria-hidden={!mobileSidebarVisible}>
         <div className="flex flex-col h-full">
           {/* Header */}
           <div className="flex items-center justify-between p-4 border-b border-gray-200">
             <h2 className="text-lg font-semibold text-gray-900">Menu</h2>
-            <button
-              type="button"
-              onClick={() => setMobileSidebarVisible(false)}
-              className="p-2 rounded-full hover:bg-gray-100 transition-colors duration-200"
-              aria-label="Close mobile menu"
-            >
+            <button type="button" onClick={() => setMobileSidebarVisible(false)} className="p-2 rounded-full hover:bg-gray-100 transition-colors duration-200" aria-label="Close mobile menu" >
               <HiXMark className="w-5 h-5 text-gray-500" />
             </button>
           </div>
@@ -167,10 +157,7 @@ const Navbar = () => {
           <div className="flex-1 p-4">
             <nav className="space-y-1">
               {navLinks.map((link) => (
-                <NavLink
-                  key={link.to}
-                  to={link.to}
-                  onClick={() => setMobileSidebarVisible(false)}
+                <NavLink key={link.to} to={link.to} onClick={() => setMobileSidebarVisible(false)}
                   className={({ isActive }) =>
                     `group flex flex-col items-start px-3 py-3 text-sm font-medium transition-colors duration-200 ${isActive
                       ? 'text-black'
