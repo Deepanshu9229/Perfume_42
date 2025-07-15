@@ -51,12 +51,22 @@ const PlaceOrder = () => {
           if (response.data.success) {
             toast.success('Order placed successfully!')
             setCartItems({})
-            navigate('/orders') // ✅ fix: corrected `navigator` to `navigate`
+            navigate('/orders')
           } else {
             toast.error(response.data.message)
           }
           break
         }
+
+         case 'razorpay':
+
+            const responseRazorpay = await axios.post(backendUrl + '/api/order/razorpay', orderData, {headers:{token}})
+            if(responseRazorpay.data.success){
+              console.log(responseRazorpay.data.order );
+              
+            }
+
+          break;
 
         default:
           toast.error("Selected payment method not implemented yet.")
@@ -102,10 +112,10 @@ const PlaceOrder = () => {
         <div className='mt-12'>
           <h1>PAYMENT METHOD</h1>
           <div className='flex gap-3 flex-col lg:flex-row'>
-            <div onClick={() => setMethod('stripe')} className='flex items-center gap-3 border p-2 px-2 cursor-pointer'>
+            {/* <div onClick={() => setMethod('stripe')} className='flex items-center gap-3 border p-2 px-2 cursor-pointer'>
               <p className={`min-w-3.5 h-3.5 border rounded-full ${method === 'stripe' ? 'bg-green-400' : ''}`}></p>
               <img className='h-5 mx-4' src={assets.stripe} alt="Stripe" />
-            </div>
+            </div> */}
             <div onClick={() => setMethod('razorpay')} className='flex items-center gap-3 border p-2 px-2 cursor-pointer'>
               <p className={`min-w-3.5 h-3.5 border rounded-full ${method === 'razorpay' ? 'bg-green-400' : ''}`}></p>
               <img className='h-5 mx-4' src={assets.razorpay} alt="Razorpay" />
