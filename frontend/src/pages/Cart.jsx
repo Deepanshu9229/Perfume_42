@@ -22,7 +22,7 @@ const Cart = () => {
     }
     //console.log(tempData); // [{_id:'002', size:'10ML', quantity:1},{},{}....]
     setCartData(tempData)
-  }, [cartItems])
+  }, [cartItems, products])
 
   return (
     <div className=' pt-14 max-w-4xl mx-auto px-4'>

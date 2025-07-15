@@ -23,10 +23,10 @@ const Collections = () => {
     }
   }
 
-  useEffect(() => {
-    console.log(category);
+  // useEffect(() => {
+  //   console.log(category);
 
-  }, [category])
+  // }, [category])
 
   const toggleSeason = (e) => { //for filter of season wise checkbox -----------
     if (season.includes(e.target.value)) {
@@ -35,10 +35,10 @@ const Collections = () => {
       setSeason(prev => [...prev, e.target.value]);
     }
   }
-  useEffect(() => {
-    console.log(season);
+  // useEffect(() => {
+  //   console.log(season);
 
-  }, [season])
+  // }, [season])
 
   // Filtering logic for category & season---------
   const applyFilter = () => {

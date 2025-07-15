@@ -7,6 +7,7 @@ import connectCloudinary from './config/cloudinary.js'
 import userRouter from './routes/userRoute.js'
 import productRouter from './routes/productRoute.js'
 import cartRouter from './routes/cartRoute.js'
+import orderRouter from './routes/orderRoute.js'
 
 //---------------------------App Config
 const app = express() //instance of express server
@@ -27,6 +28,7 @@ app.use(cors())// now we can access backend from any ip
 app.use('/api/user', userRouter)
 app.use('/api/product', productRouter)
 app.use('/api/cart', cartRouter)
+app.use('/api/order', orderRouter)
 
 
 app.listen(port, ()=> console.log('Server running on PORT : ' + port)) //---Start express server

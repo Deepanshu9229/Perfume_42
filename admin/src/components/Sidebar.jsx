@@ -17,7 +17,7 @@ const Sidebar = () => {
           <span className="hidden md:block ">List Items</span>
         </NavLink>
 
-        <NavLink to="/order" className="flex items-center gap-3 px-4 py-2 rounded-md hover:bg-gray-100 transition" >
+        <NavLink to="/orders" className="flex items-center gap-3 px-4 py-2 rounded-md hover:bg-gray-100 transition" >
           <ClipboardDocumentCheckIcon className="w-6 h-6 text-gray-700" />
           <span className="hidden md:block ">Orders</span>
         </NavLink>
