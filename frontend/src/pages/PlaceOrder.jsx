@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import CartTotal from '../components/cartTotal'
+import CartTotal from '../components/CartTotal'
 import { assets } from '../assets/assets.js'
 import { ShopContext } from '../context/ShopContext.jsx'
 import { toast } from 'react-toastify'
