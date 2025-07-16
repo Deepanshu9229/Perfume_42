@@ -13,12 +13,43 @@ const PlaceOrder = () => {
 
   const {backendUrl, token, cartItems,setCartItems, getCartAmount,delivery_fee, products} = useContext(ShopContext)
 
-  const [formData, setFormData] = useState({firstName: "", lastname: "", email: "",street: "", city: "", state: "", zipcode: "", country: "", phone: ""})
+  const [formData, setFormData] = useState({firstName: "", lastName: "", email: "",street: "", city: "", state: "", zipcode: "", country: "", phone: ""})
 
   const onchangeHandler = (e) => {
-    const { name, value } = e.target
+    const name = e.target.name
+    const value = e.target.value
     setFormData(data => ({ ...data, [name]: value }))
   }
+
+  const initPay = (order) => {
+    const options = {
+      key : import.meta.env.VITE_RAZORPAY_KEY_ID,
+      amount : order.amount,
+      currency : order.currency,
+      name : 'Order Payment',
+      description : 'Order Payment',
+      order_id : order.id,
+      receipt : order.receipt,
+      handler: async (response) => {
+        console.log(response);
+        try {
+          const {data} = await axios.post(backendUrl + '/api/order/verifyRazorpay', response, {header:{token}})
+          if(data.success){
+            navigate('/orders')
+            setCartItems({})
+          }
+        } catch (error) {
+          console.log();
+          toast.error(error)
+        }
+        
+      }
+    }
+    const rzp = new window.Razorpay(options)
+    rzp.open()
+  }
+
+
 
   const onSubmithandler = async (e) => {
     e.preventDefault()
@@ -62,7 +93,9 @@ const PlaceOrder = () => {
 
             const responseRazorpay = await axios.post(backendUrl + '/api/order/razorpay', orderData, {headers:{token}})
             if(responseRazorpay.data.success){
-              console.log(responseRazorpay.data.order );
+              // console.log(responseRazorpay.data.order );
+              initPay(responseRazorpay.data.order)
+              
               
             }
 
@@ -88,7 +121,7 @@ const PlaceOrder = () => {
         </div>
         <div className='flex gap-3'>
           <input required onChange={onchangeHandler} name='firstName' value={formData.firstName} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="text" placeholder='First Name' />
-          <input required onChange={onchangeHandler} name='lastname' value={formData.lastname} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="text" placeholder='Last Name' />
+          <input required onChange={onchangeHandler} name='lastName' value={formData.lastName} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="text" placeholder='Last Name' />
         </div>
         <input required onChange={onchangeHandler} name='email' value={formData.email} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="email" placeholder='Email Id' />
         <input required onChange={onchangeHandler} name='street' value={formData.street} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="text" placeholder='Street Address' />

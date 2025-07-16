@@ -44,25 +44,42 @@ const placeOrderRazorpay = async (req, res) => {
         await newOrder.save()
 
         const options = {
-            amount : amount * 100,
-            currency : currency.toUpperCase(),
-            receipt : newOrder._id.toString()
+            amount: amount * 100,
+            currency: currency.toUpperCase(),
+            receipt: newOrder._id.toString()
         }
         // making order from razorpay
         await razorpayInstance.orders.create(options, (error, order) => {
-            if(error){
+            if (error) {
                 console.log(error);
-                return res.json({success:false, message:error})
+                return res.json({ success: false, message: error.message })
             }
-            res.json({success:true, order})
+            res.json({ success: true, order })
         }
-    )
+        )
 
     } catch (error) {
         console.log(error);
-        res.json({success:false, message:error.message})
+        res.json({ success: false, message: error.message })
     }
 }
+const verifyRazorpay = async (req, res) => {
+    try {
+        const { userId, razorpay_order_id } = req.body
+        const orderInfo = await razorpayInstance.orders.fetch(razorpay_order_id)
+        // console.log(orderInfo);
+        if (orderInfo.status === 'paid') {
+            await orderModel.findByIdAndUpdate(orderInfo.receipt, { payment: true })
+            await userModel.findByIdAndUpdate(userId, { cartData: {} })
+            res.json({ success: true, message: "Payment Successful" })
+        } else res.json({ success: false, message: 'Payment Failed' })
+
+    } catch (error) {
+        console.log(error);
+        return res.json({ success: false, message: error.message })
+    }
+}
+
 
 // all orders datA  for admin pannel --------------
 const allOrders = async (req, res) => {
@@ -100,4 +117,4 @@ const updateStatus = async (req, res) => { // admin pannel se jo status update k
     }
 }
 
-export { placeOrder, placeOrderRazorpay, allOrders, userOrder, updateStatus }
+export { placeOrder, placeOrderRazorpay, allOrders, userOrder, updateStatus, verifyRazorpay }

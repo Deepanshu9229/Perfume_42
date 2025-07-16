@@ -12,13 +12,9 @@ const Orders = ({ token }) => {
   const fetchAllOrders = async () => {
     if (!token) return null;
     try {
-      const response = await axios.post(
-        backendUrl + '/api/order/list',
-        {},
-        { headers: { token } }
-      );
+      const response = await axios.post( backendUrl + '/api/order/list', {}, { headers: { token } } );
       if (response.data.success) {
-        setOrders(response.data.orders);
+        setOrders(response.data.orders.reverse());
       } else {
         toast.error(response.data.message);
       }
