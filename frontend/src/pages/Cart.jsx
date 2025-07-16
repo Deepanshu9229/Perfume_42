@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { ShopContext } from '../context/ShopContext.jsx'
 import { HiOutlineTrash } from 'react-icons/hi2'
-import CartTotal from '../components/CartTotal.js'
+import CartTotal from '../components/CartTotal.jsx'
 
 
 const Cart = () => {
