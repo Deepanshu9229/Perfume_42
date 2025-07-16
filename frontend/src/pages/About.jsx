@@ -4,10 +4,11 @@ import NewsletterBox from '../components/NewsletterBox'
 
 const About = () => {
   return (
-    <div className='px-4 md:px-16 lg:px-32'>
-      <div className='text-2xl text-center pt-8 border-t'>
-        <h1>About Us</h1>
+    <>
+      <div className='text-center text-2xl pt-10 border-t border-gray-200 relative'>
+        <h1 className='text-center text-gray-800 tracking-wider uppercase font-semibold' >About Us</h1>
       </div>
+      <div className='px-4 md:px-16 lg:px-32 '>
       <div className='my-10 flex flex-col md:flex-row gap-16 items-center'>
         <img src={aboutUs} alt="About Us" className='w-full md:max-w-[450px] rounded-lg shadow-md' />
         <div className='space-y-4 text-gray-800'>
@@ -38,6 +39,7 @@ const About = () => {
       </div>
       <NewsletterBox/>
     </div>
+    </>
   );
 };
 

@@ -81,6 +81,7 @@ const Collections = () => {
 
   return (
     <div className="flex flex-col sm:flex-row gap-4 sm:gap-10 pt-10 border-t border-gray-200 relative">
+      
 
       {/* Toggle Filter Button (visible only on mobile) */}
       <div className="sm:hidden mb-4">
@@ -139,7 +140,7 @@ const Collections = () => {
       <div className="flex-1">
 
         <div className='flex justify-between text-base sm:text-2xl mb-4'>
-          <p className="text-center text-gray-800">All Collections</p>
+          <p className=" text-center text-gray-800 tracking-wider uppercase font-semibold">All Collections</p>
           <select onChange={(e)=>setSortType(e.target.value)} className='border-2 border-gray-300 text-sm px-2 py-1 rounded' defaultValue="" >
             <option value="lowToHigh">Sort by : Low to High</option>
             <option value="highToLow">Sort by : High to Low</option>
@@ -157,6 +158,7 @@ const Collections = () => {
         </div>
 
       </div>
+      
     </div>
   );
 };

@@ -25,10 +25,12 @@ const Cart = () => {
   }, [cartItems, products])
 
   return (
-    <div className=' pt-14 max-w-4xl mx-auto px-4'>
-      <div className='text-2xl mb-6 font-semibold'>
+    <>
+    
+      <div className='text-2xl mb-6 font-semibold text-center text-2xl pt-10 border-t border-gray-200 relative '>
         <h1>Your Cart</h1>
       </div>
+      <div className=' max-w-4xl mx-auto px-4  '>
 
       {cartData.length === 0 ? (
         <p className='text-center text-gray-500'>Your cart is empty.</p>
@@ -76,6 +78,7 @@ const Cart = () => {
         </div>
       )}
     </div>
+    </>
   )
 }
 

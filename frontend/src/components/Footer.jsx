@@ -19,10 +19,10 @@ const Footer = () => {
         {/* Links */}
         <div className="flex flex-wrap justify-center gap-4 md:gap-6">
           <a href="#" className="hover:underline">Home</a>
-          <a href="#" className="hover:underline">About us</a>
-          <a href="#" className="hover:underline">Delivery</a>
-          <a href="#" className="hover:underline">Privacy Policy</a>
-          <a href="#" className="hover:underline">Get In Touch</a>
+          <a href="/about" className="hover:underline">About us</a>
+          <a href="/about" className="hover:underline">Delivery</a>
+          <a href="/about" className="hover:underline">Privacy Policy</a>
+          <a href="/contact" className="hover:underline">Get In Touch</a>
         </div>
       </div>
 

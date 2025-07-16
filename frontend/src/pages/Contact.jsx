@@ -6,8 +6,8 @@ const Contact = () => {
   return (
     <div>
 
-      <div className='text-center text-2xl pt-10 border-t'>
-        <h1>CONTACT US</h1>
+      <div className='text-center text-2xl pt-10 border-t border-gray-200 relative'>
+        <h1 className='text-center text-gray-800 tracking-wider uppercase font-semibold' >CONTACT US</h1>
       </div>
 
       <div className='m-10 flex flex-col justify-center md:flex-row gap-10 mb-28'>

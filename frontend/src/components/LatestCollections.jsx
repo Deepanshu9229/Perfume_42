@@ -14,10 +14,14 @@ const LatestCollection = () => {
 
   return (
     <div className="my-10 px-4 sm:px-8 md:px-10">
-      <div className="text-center py-8">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold">
-          Latest Collections
+      <div className="text-center py-15">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-[0.2em] text-gray-800 mb-4">
+          LATEST COLLECTIONS
         </h2>
+        {/* Elegant subtitle */}
+        <p className="text-sm sm:text-base text-gray-600 font-light tracking-wider uppercase max-w-md mx-auto">
+          Discover our newest fragrances crafted for the discerning connoisseur
+        </p>
       </div>
 
       {/* Rendering products */}
@@ -34,6 +38,7 @@ const LatestCollection = () => {
           />
         ))}
       </div>
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent mt-16"></div>
     </div>
   );
 };

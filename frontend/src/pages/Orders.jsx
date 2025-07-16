@@ -40,7 +40,8 @@ useEffect(() => {
 
 
   return (
-    <div className='pt-16 max-w-5xl mx-auto px-4'>
+    <div className='text-center text-2xl pt-10 border-t border-gray-200 relative'>
+    <div className='pt-16 max-w-5xl mx-auto px-4  '>
       <h1 className='text-2xl font-semibold mb-6'>My Orders</h1>
 
       {orderData.length === 0 ? (
@@ -81,6 +82,7 @@ useEffect(() => {
           </div>
         ))
       )}
+    </div>
     </div>
   )
 }
