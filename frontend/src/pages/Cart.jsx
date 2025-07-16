@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { ShopContext } from '../context/ShopContext'
+import { ShopContext } from '../context/ShopContext.js'
 import { HiOutlineTrash } from 'react-icons/hi2'
-import CartTotal from '../components/cartTotal'
+import CartTotal from '../components/cartTotal.js'
 
 const Cart = () => {
   const { products, currency, cartItems, updateQuantity, navigate} = useContext(ShopContext)
@@ -27,7 +27,7 @@ const Cart = () => {
   return (
     <>
     
-      <div className='text-2xl mb-6 font-semibold text-center text-2xl pt-10 border-t border-gray-200 relative '>
+      <div className='text-2xl mb-6 font-semibold text-center pt-10 border-t border-gray-200 relative '>
         <h1>Your Cart</h1>
       </div>
       <div className=' max-w-4xl mx-auto px-4  '>
