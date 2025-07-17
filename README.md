@@ -5,7 +5,7 @@ A full-stack e-commerce web application built with **React**, **Node.js**, **Exp
 ## 🌐 Deployed Links
 
 - 🧑‍💼 **Public Site**: [https://perfume-frontend-dusky.vercel.app/](https://perfume-frontend-dusky.vercel.app/)
-- 🛠️ **Admin Dashboard**: [https://perfume-admin-seven.vercel.app/](https://perfume-admin-seven.vercel.app/)
+- 🛠️ **Admin Dashboard**: [https://perfume-admin-seven.vercel.app/](https://perfume-admin-seven.vercel.app/)   email : deepa@dees.com | password : 1234dees
 
 ## 🔧 Features
 
