@@ -10,6 +10,16 @@ const Product = () => {
   const { products, currency, addToCart } = useContext(ShopContext);
   const [productData, setProductData] = useState(null);
   const [size, setSize] = useState('')
+
+  // Calculate price based on selected size
+  const getPriceBySize = () => {
+    if (!productData) return '';
+    const basePrice = productData.price;
+    if (size === '10ML') return (basePrice / 10).toFixed(2);
+    if (size === '50ML') return (basePrice / 2).toFixed(2);
+    // Default or 100ML
+    return basePrice;
+  }
   const [selectedImage, setSelectedImage] = useState(0);
 
   const fetchProductData = async () => {
@@ -33,7 +43,7 @@ const Product = () => {
             <div className="hidden sm:flex flex-col gap-4 w-24 mr-2">
               {productData.image?.map((item, index) => (
                 <img
-                  onClick={()=>setSelectedImage(index)}
+                  onClick={() => setSelectedImage(index)}
                   src={item}
                   key={index}
                   alt=""
@@ -62,7 +72,7 @@ const Product = () => {
                 <HiOutlineStar className="w-4 h-4" />
                 <span className="ml-2 text-gray-600 text-sm">(123 reviews)</span>
               </div>
-              <p className="text-3xl font-bold text-gray-800">{currency}{productData.price}</p>
+              <p className="text-3xl font-bold text-gray-800">{currency}{getPriceBySize()}</p>
               <p className="text-gray-700 text-base leading-relaxed">{productData.description || "This is a premium-quality product designed to elevate your style."}</p>
               <div className='flex-1 flex-col my-8'>
                 <p className='py-4'>Select Size</p>
@@ -78,7 +88,7 @@ const Product = () => {
                   ))}
                 </div>
               </div>
-              <button  onClick={()=>addToCart(productData._id, size)} className="bg-black text-white py-4 px-8 rounded-sm active:bg-gray-800 transition text-lg font-medium">Add to Cart</button>
+              <button onClick={() => addToCart(productData._id, size)} className="bg-black text-white py-4 px-8 rounded-sm active:bg-gray-800 transition text-lg font-medium">Add to Cart</button>
               <hr />
             </div>
           </div>
@@ -94,7 +104,7 @@ const Product = () => {
             </div>
           </div>
           {/* related products */}
-          <RelatedProducts category={productData.category} season={productData.season} currentProductId={productData._id}/>
+          <RelatedProducts category={productData.category} season={productData.season} currentProductId={productData._id} />
         </>
       ) : (
         <div className="text-center py-20 text-xl text-gray-500">Loading product...</div>
