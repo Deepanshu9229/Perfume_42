@@ -1,0 +1,367 @@
+.filter-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.filter-container h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #333;
+  font-size: 2rem;
+}
+
+.filter-container section {
+  margin-bottom: 3rem;
+  padding: 2rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  background: #f8f9fa;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.filter-container h3 {
+  margin-bottom: 1.5rem;
+  color: #444;
+  border-bottom: 3px solid #007bff;
+  padding-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+/* Array Methods Section */
+.method-examples {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.method-item {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 4px solid #28a745;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.method-item h4 {
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-size: 1rem;
+}
+
+.method-item code {
+  background: #f8f9fa;
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  color: #e83e8c;
+  border: 1px solid #e9ecef;
+  display: block;
+}
+
+/* Filters Grid */
+.filters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filter-group label {
+  font-weight: 600;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.filter-group input,
+.filter-group select {
+  padding: 0.75rem;
+  border: 2px solid #e9ecef;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-group input:focus,
+.filter-group select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.filter-group input[type="range"] {
+  padding: 0;
+}
+
+.filter-group input[type="checkbox"] {
+  width: auto;
+  margin-right: 0.5rem;
+}
+
+/* Results Section */
+.results {
+  margin-top: 2rem;
+}
+
+.results h4 {
+  margin-bottom: 1rem;
+  color: #333;
+  font-size: 1.25rem;
+}
+
+/* User Cards */
+.user-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.user-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #007bff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.user-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.user-card h5 {
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.user-card p {
+  margin-bottom: 0.25rem;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Product Grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.product-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #28a745;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.product-card h5 {
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.product-card p {
+  margin-bottom: 0.25rem;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.in-stock {
+  color: #28a745 !important;
+  font-weight: 600;
+}
+
+.out-of-stock {
+  color: #dc3545 !important;
+  font-weight: 600;
+}
+
+/* Complex Examples */
+.complex-examples .example-item {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 8px;
+  border-left: 4px solid #ffc107;
+}
+
+.complex-examples h4 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+/* Code Examples */
+.code-examples {
+  background: #f8f9fa;
+}
+
+.code-block {
+  margin-bottom: 2rem;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.code-block h4 {
+  margin: 0;
+  padding: 1rem;
+  background: #343a40;
+  color: white;
+  font-size: 1rem;
+}
+
+.code-block pre {
+  margin: 0;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  overflow-x: auto;
+}
+
+.code-block code {
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .filter-container {
+    padding: 10px;
+  }
+
+  .filters-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .user-cards,
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .method-examples {
+    gap: 0.5rem;
+  }
+
+  .filter-container section {
+    padding: 1rem;
+  }
+
+  .code-block pre {
+    padding: 1rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .filter-container {
+    max-width: none;
+    padding: 0;
+  }
+
+  .filters-grid {
+    display: none;
+  }
+
+  .code-block {
+    break-inside: avoid;
+  }
+
+  .user-card,
+  .product-card {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .user-card,
+  .product-card,
+  .filter-group input,
+  .filter-group select {
+    transition: none;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .filter-container {
+    background: #1a1a1a;
+    color: #e0e0e0;
+  }
+
+  .filter-container section {
+    background: #2a2a2a;
+    border-color: #444;
+  }
+
+  .filter-container h2,
+  .filter-container h3 {
+    color: #fff;
+  }
+
+  .method-item,
+  .user-card,
+  .product-card,
+  .filters-grid,
+  .complex-examples .example-item,
+  .code-block {
+    background: #333;
+    color: #e0e0e0;
+  }
+
+  .method-item code {
+    background: #444;
+    color: #ffc107;
+    border-color: #555;
+  }
+
+  .filter-group input,
+  .filter-group select {
+    background: #444;
+    border-color: #555;
+    color: #e0e0e0;
+  }
+
+  .filter-group input:focus,
+  .filter-group select:focus {
+    border-color: #007bff;
+  }
+
+  .code-block h4 {
+    background: #1a1a1a;
+  }
+
+  .code-block pre {
+    background: #2a2a2a;
+  }
+
+  .code-block code {
+    color: #e0e0e0;
+  }
+}
