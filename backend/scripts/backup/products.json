@@ -1,0 +1,96 @@
+[
+  {
+    "_id": "6aca2b36870920447d652407",
+    "name": "Cool Water Eau de Toilette",
+    "description": "Cool Water is a men's fragrance introduced in 1988 by Davidoff and produced under license by Coty Inc. as part of its Coty Prestige brand portfolio.",
+    "price": 40,
+    "image": [
+      "https://res.cloudinary.com/drnbtp1rq/image/upload/v1791634231/p05livqwaemoaecx9pwv.webp",
+      "https://res.cloudinary.com/drnbtp1rq/image/upload/v1791634231/n898pb5ganrw7td8dff0.webp"
+    ],
+    "season": [
+      "Summer",
+      "Spring",
+      "Autumn"
+    ],
+    "category": [
+      "Men"
+    ],
+    "size": [
+      "100ML"
+    ],
+    "bestSeller": true,
+    "date": 1791634230328,
+    "__v": 0
+  },
+  {
+    "_id": "6aca2bee870920447d652411",
+    "name": "Rasasi Hawas Ice Eau De Parfum",
+    "description": "Hawas Ice by Rasasi is a Aromatic fragrance for men. Hawas Ice was launched in 2023. Top notes are Apple, Italian Lemon, Sicilian Bergamot",
+    "price": 30,
+    "image": [
+      "https://res.cloudinary.com/drnbtp1rq/image/upload/v1791634416/ldofbngetfu1trmotm4a.webp",
+      "https://res.cloudinary.com/drnbtp1rq/image/upload/v1791634416/need3xak2jan4jpkxq84.webp"
+    ],
+    "season": [
+      "Summer",
+      "Autumn",
+      "Spring"
+    ],
+    "category": [
+      "Unisex"
+    ],
+    "size": [
+      "100ML"
+    ],
+    "bestSeller": true,
+    "date": 1791634414953,
+    "__v": 0
+  },
+  {
+    "_id": "6aca2c67870920447d652414",
+    "name": "tom ford ombré leather",
+    "description": "Ombré Leather Eau De Parfum • 100ml - TOM FORD - A bottle of floral, spicy Ombré Leather fragrance by Tom Ford.",
+    "price": 100,
+    "image": [
+      "https://res.cloudinary.com/drnbtp1rq/image/upload/v1791634537/kworczjwzqrzxutelcb9.webp",
+      "https://res.cloudinary.com/drnbtp1rq/image/upload/v1791634537/ztxvcblvsisiizacswym.webp",
+      "https://res.cloudinary.com/drnbtp1rq/image/upload/v1791634537/mnwkqhqdmua3zbtqfolx.webp"
+    ],
+    "season": [
+      "Winter"
+    ],
+    "category": [
+      "Men"
+    ],
+    "size": [
+      "100ML"
+    ],
+    "bestSeller": true,
+    "date": 1791634535912,
+    "__v": 0
+  },
+  {
+    "_id": "6aca2d49870920447d652417",
+    "name": "Imagination Louis Vuitton",
+    "description": "Louis Vuitton Imagination, a bold fusion of amber, smoky black tea, and vibrant citrus, crafted by Master Perfumer Jacques",
+    "price": 300,
+    "image": [
+      "https://res.cloudinary.com/drnbtp1rq/image/upload/v1791634763/ydmrlcjascjd08biyslb.webp",
+      "https://res.cloudinary.com/drnbtp1rq/image/upload/v1791634763/dy1yabsosvkczsi583zw.webp"
+    ],
+    "season": [
+      "Summer",
+      "Autumn"
+    ],
+    "category": [
+      "Unisex"
+    ],
+    "size": [
+      "100ML"
+    ],
+    "bestSeller": true,
+    "date": 1791634761386,
+    "__v": 0
+  }
+]
